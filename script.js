@@ -15,25 +15,55 @@ let rndLetter = [...lowAlpha, ...upAlpha, ...numbset, ...speChar]
 function writePassword() {
   let pswd = genPassword();
   let passwordText = document.querySelector("#password");
-
   passwordText.value = pswd;
-
+  startFunction();
 }
 
-let nmbrChar = prompt("How many characters do you want in your password? (8 ~ 128)");
+function startFunction() {
+  passwordLength();
+  getLow();
+}
+
+
+
+let nmbrChar = 0
+
 function passwordLength() {
+  let userAns = prompt("How many characters do you want in your password? (8 ~ 128)");
+  nmbrChar = userAns
   if (nmbrChar > 128 || nmbrChar < 8) {
-    alert("The password must have 8 ~ 128 characters.")
-    return passwordLength();
+    alert("The password characters must be between 8 ~ 128 characters, please enter the number again.")
+    return passwordLength()
   }
   return
 }
-passwordLength();
 
-confirm("Add random Lowercase Alphabets?");
-confirm("Add random Uppercase Alphabets?");
-confirm("Add random Numbers?");
-confirm("Add random Special Character?");
+function  getLow(){
+  let chsLow = confirm("Add random Lowercase Alphabets?");
+  if (lowAlpha) {
+    return lowAlpha
+  }
+  else {
+  lowAlpha.length = 0
+  }
+}
+
+
+// confirm("Add random Uppercase Alphabets?");
+
+// confirm("Add random Numbers?");
+// confirm("Add random Special Character?");
+
+
+// function confirmLow() {
+//   if confirm("Add random Lowercase Alphabets?") {
+  
+//   }
+  
+// }
+// confirm("Add random Uppercase Alphabets?");
+// confirm("Add random Numbers?");
+// confirm("Add random Special Character?");
 
 
 
@@ -42,8 +72,6 @@ function genPassword() {
   let pswd = "";
   for (let i = 0; i < nmbrChar; i++) {
     
-    
-      
 
     
     
