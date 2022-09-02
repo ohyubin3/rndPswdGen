@@ -1,3 +1,7 @@
+
+
+
+
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
 
@@ -16,21 +20,44 @@ function writePassword() {
 
 }
 
+let nmbrChar = prompt("How many characters do you want in your password? (8 ~ 128)");
+function passwordLength() {
+  if (nmbrChar > 128 || nmbrChar < 8) {
+    alert("The password must have 8 ~ 128 characters.")
+    return passwordLength();
+  }
+  return
+}
+passwordLength();
+
+confirm("Add random Lowercase Alphabets?");
+confirm("Add random Uppercase Alphabets?");
+confirm("Add random Numbers?");
+confirm("Add random Special Character?");
+
+
 
 function genPassword() {
 
   let pswd = "";
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < nmbrChar; i++) {
     
+    
+      
 
+    
+    
     let rndNumb = Math.floor(Math.random()*rndLetter.length);
     let rndChar = rndLetter[rndNumb]
     pswd += rndChar;
     
   }
+
   return pswd;
 }
 
 
 // Add event listener to generate button
+
 generateBtn.addEventListener("click", writePassword);
+
