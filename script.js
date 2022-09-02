@@ -8,7 +8,7 @@ let generateBtn = document.querySelector("#generate");
 let lowAlpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 let upAlpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'].join("").toUpperCase();
 let numbset = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-let speChar = ['!', '@', '#', '$', '%', '^', '&', '*']
+let speChar = ['~', '!', '@', '#', '$', '%', '&', '*', '(', ')', '=', '+', '-']
 let rndLetter = [...lowAlpha, ...upAlpha, ...numbset, ...speChar]
 
 // Write password to the #password input
@@ -29,12 +29,12 @@ function genPassword() {
 
   //    NUMBER OF CHARACTERS  //
   let userNbr = prompt("How many characters will your password have? ( Enter From 8 ~ 128 )")
-  if (userNbr > 8 || userNbr < 128)  {  
-  }
-  else  {
-    alert("Please select from 8 ~ 128");
-  }
-
+  if (userNbr > 8 || userNbr < 128);  {   
+  } 
+    // alert("Please select from 8 ~ 128");
+    // window.location.reload();
+  
+  
 
 
   //    CHOICE UPPERCASE    //
