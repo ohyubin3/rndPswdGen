@@ -16,74 +16,62 @@ function writePassword() {
   let pswd = genPassword();
   let passwordText = document.querySelector("#password");
   passwordText.value = pswd;
-  startFunction();
-}
-
-function startFunction() {
-  passwordLength();
-  getLow();
 }
 
 
 
-let nmbrChar = 0
-
-function passwordLength() {
-  let userAns = prompt("How many characters do you want in your password? (8 ~ 128)");
-  nmbrChar = userAns
-  if (nmbrChar > 128 || nmbrChar < 8) {
-    alert("The password characters must be between 8 ~ 128 characters, please enter the number again.")
-    return passwordLength()
-  }
-  return
-}
-
-function  getLow(){
-  let chsLow = confirm("Add random Lowercase Alphabets?");
-  if (lowAlpha) {
-    return lowAlpha
-  }
-  else {
-  lowAlpha.length = 0
-  }
-}
-
-
-// confirm("Add random Uppercase Alphabets?");
-
-// confirm("Add random Numbers?");
-// confirm("Add random Special Character?");
-
-
-// function confirmLow() {
-//   if confirm("Add random Lowercase Alphabets?") {
-  
-//   }
-  
-// }
-// confirm("Add random Uppercase Alphabets?");
-// confirm("Add random Numbers?");
-// confirm("Add random Special Character?");
 
 
 
 function genPassword() {
 
-  let pswd = "";
-  for (let i = 0; i < nmbrChar; i++) {
-    
+  let rndLetter = ""
 
-    
-    
-    let rndNumb = Math.floor(Math.random()*rndLetter.length);
-    let rndChar = rndLetter[rndNumb]
-    pswd += rndChar;
-    
+  //    NUMBER OF CHARACTERS  //
+  let userNbr = prompt("How many characters will your password have? ( Enter From 8 ~ 128 )")
+  if (userNbr > 8 || userNbr < 128)  {  
+  }
+  else  {
+    alert("Please select from 8 ~ 128");
   }
 
-  return pswd;
-}
 
+
+  //    CHOICE UPPERCASE    //
+  if(confirm("Will you add random Uppercase Alphabets to your password?")) {
+    rndLetter = rndLetter.concat(upAlpha);
+  }
+
+  //    CHOICE LOWERCASE    //
+  if(confirm("Will you add random Lowercase Alphabets to your password?")){
+    rndLetter = rndLetter.concat(lowAlpha);
+  }
+  
+  //    CHOICE NUMBER   //
+  if(confirm("Will you add random Numbers to your password?")){
+    rndLetter = rndLetter.concat(numbset);
+  }
+  
+  //    RANDOM CHARACTERS  //
+  if(confirm("Will you add random Special Characters to your password?")){
+    rndLetter = rndLetter.concat(speChar);
+  }
+
+
+
+
+
+  var pswd = "";
+  if ((rndLetter.length > 0) && (userNbr >= 8) && (userNbr <= 128)) {
+    for (let i = 0; i < userNbr; i++) { 
+      let rndNumb = Math.floor(Math.random()*rndLetter.length);
+      let rndChar = rndLetter[rndNumb]
+      pswd += rndChar;
+      
+    }
+  }
+    return pswd;
+}
 
 // Add event listener to generate button
 
